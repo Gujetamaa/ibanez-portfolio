@@ -151,7 +151,7 @@ export const DATA = {
   projects: [
     {
       title: "NexSkill Learning Portal",
-      href: "#",
+      href: "https://nexskill-cms.vercel.app/login#",
       dates: "Dec 2025 - Jan 2026",
       active: true,
       description:
@@ -169,7 +169,7 @@ export const DATA = {
     },
     {
       title: "Barangay Fairview E-Governance Portal",
-      href: "#",
+      href: "https://capstone-project-six-livid.vercel.app",
       dates: "Sept 2024 - Nov 2025",
       active: true,
       description:
