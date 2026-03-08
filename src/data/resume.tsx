@@ -221,7 +221,7 @@ export const DATA = {
       title: "Hakum Auto Care - Queueing System",
       tags: ["Automation", "CRM", "Real-time", "SMS Integration"],
       description:
-        "Real‑time queueing management system with SMS notifications built using React, TypeScript, Supabase, and Twilio to streamline customer flow.",
+        "Real‑time queueing management system with SMS notifications built using React, TypeScript, Supabase, and Twilio to streamline customer flow. Led QA testing while developing the system and conducted client training sessions to onboard users and administrators.",
       technologies: ["React", "TypeScript", "Supabase", "Twilio"],
       dates: "2025-2026",
       image: "",
