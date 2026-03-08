@@ -90,7 +90,7 @@ export const DATA = {
     {
       company: "Optrizo Digital Solutions",
       href: "https://optrizo.com",
-      badges: ["Founder"],
+      badges: ["Full-Stack Developer"],
       location: "Remote",
       title: "Full-Stack Developer",
       start: "Mar 2025",
@@ -102,7 +102,7 @@ export const DATA = {
       company: "Digiteer Software Studio",
       href: "#",
       badges: ["Intern"],
-      location: "Remote",
+      location: "Hybrid (Manila)",
       title: "Software Engineer (Intern)",
       start: "Sept 2024",
       end: "Dec 2024",
