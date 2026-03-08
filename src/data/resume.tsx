@@ -150,13 +150,31 @@ export const DATA = {
   ],
   projects: [
     {
+      title: "NexSkill Learning Portal",
+      href: "#",
+      dates: "Dec 2025 - Jan 2026",
+      active: true,
+      description:
+        "Developed a prototype learning platform supporting structured courses, progress tracking, and student engagement. Designed role-based application structure, interactive learning experiences, AI-assisted recommendations, community and coaching features, and certificate issuance/verification flows.",
+      technologies: ["React", "TypeScript", "Node.js", "PostgreSQL"],
+      links: [
+        {
+          type: "Website",
+          href: "https://nexskill-cms.vercel.app/login",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      image: "https://image.thum.io/get/maxAge/12/width/700/https://nexskill-cms.vercel.app/login",
+      video: "",
+    },
+    {
       title: "Barangay Fairview E-Governance Portal",
       href: "#",
       dates: "Sept 2024 - Nov 2025",
       active: true,
       description:
         "Built a full‑stack e‑governance platform for managing resident records, document requests, and incident reports for thousands of residents. Designed backend APIs and schemas, implemented role‑based authentication, and delivered dashboards and reporting tools with React and TypeScript.",
-      technologies: ["React", "TypeScript", "PostgreSQL", "REST APIs"],
+      technologies: ["React", "TypeScript", "Node.js", "JavaScript", "PostgreSQL", "REST APIs"],
       links: [
         {
           type: "Website",
@@ -174,7 +192,7 @@ export const DATA = {
       active: true,
       description:
         "Maintained frontend and backend features for booking, scheduling, and customer workflows. Implemented APIs and backend logic, refined UI components, ran functional and API tests, and resolved 30+ cross‑stack issues. Delivered UI/UX and SEO improvements to boost engagement.",
-      technologies: ["React", "TypeScript", "Supabase", "Twilio"],
+      technologies: ["React", "TypeScript", "Supabase", "BusyBee", "Supabase", "Airtable"],
       links: [
         {
           type: "Website",
@@ -194,7 +212,7 @@ export const DATA = {
         "Designed and delivered an end‑to‑end module for a public communication platform serving thousands of constituents. Implemented APIs for announcements, integrated frontend components, automated distribution via web UI, SMS, and email, and enforced data validation and consistency.",
       technologies: ["React", "TypeScript", "Ruby on Rails", "PostgreSQL"],
       links: [],
-      image: "",
+      image: "/projects/javi.png",
       video: "",
     },
   ],
