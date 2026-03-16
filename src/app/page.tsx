@@ -17,27 +17,23 @@ import { gsap } from "gsap";
 const BLUR_FADE_DELAY = 0.04;
 
 export default function Page() {
-  useEffect(() => {
-    // Profile photo parallax effect
-    const profile = document.getElementById("profile-image");
-    if (profile) {
-      const handleMouseMove = (e: MouseEvent) => {
-        const { clientX, clientY } = e;
-        const { left, top, width, height } = profile.getBoundingClientRect();
-        const x = (clientX - left - width / 2) / 20;
-        const y = (clientY - top - height / 2) / 20;
 
-        gsap.to(profile, {
-          x,
-          y,
-          duration: 0.5,
-          ease: "power2.out",
-        });
-      };
-      window.addEventListener("mousemove", handleMouseMove);
-      return () => window.removeEventListener("mousemove", handleMouseMove);
-    }
-  }, []);
+  useEffect(() => {
+  const hash = window.location.hash.replace("#", "");
+  if (!hash) return;
+
+  const element = document.getElementById(hash);
+  if (!element) return;
+
+  const offset = 100;
+  const elementPosition = element.getBoundingClientRect().top;
+  const offsetPosition = element.getBoundingClientRect().top + window.scrollY - offset;
+
+  window.scrollTo({
+    top: offsetPosition,
+    behavior: "smooth",
+  });
+}, []);
 
   return (
     <div className="min-h-screen bg-background relative font-sans">
@@ -164,7 +160,7 @@ export default function Page() {
           </div>
 
           {/* Right Column - Sidebar */}
-          <div className="space-y-16 lg:sticky lg:top-24 h-fit">
+          <div className="space-y-16 lg:sticky lg:top-24 h-fit" style={{willChange: 'transform', contain: 'layout style paint'}}>
             
             {/* About / Summary */}
              <section id="resume">
@@ -298,7 +294,6 @@ export default function Page() {
         </div>
       </main>
 
-      <FloatingNav />
     </div>
   );
 }

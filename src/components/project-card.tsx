@@ -50,9 +50,10 @@ export function ProjectCard({
   return (
     <Card
       className={cn(
-        "flex flex-col overflow-hidden border transition-all duration-300 ease-out h-full hover:shadow-2xl hover:border-foreground/20 bg-card group relative hover:scale-[1.02] hover:z-50",
+        "flex flex-col overflow-hidden border transition-all duration-300 ease-out h-full hover:shadow-2xl hover:border-foreground/20 bg-card group relative hover:scale-[1.02]",
         className
       )}
+      style={{willChange: 'transform, box-shadow, border-color'}}
     >
       {/* Primary Link (Stretched to cover the whole card) */}
       <Link

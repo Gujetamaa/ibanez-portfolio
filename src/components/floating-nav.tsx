@@ -2,9 +2,10 @@
 
 import { useEffect, useState, useCallback } from "react";
 import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
-import { Home, Briefcase, FolderGit2, Zap, User, GraduationCap, Code, Sun, Moon, FileText, Mail } from "lucide-react";
+import { Home, Briefcase, FolderGit2, Zap, User, GraduationCap, Code, Sun, Moon, FileText, Mail, Award } from "lucide-react";
 import { useTheme } from "next-themes";
 import { DATA } from "@/data/resume";
+import { usePathname, useRouter } from "next/navigation";
 
 interface NavSection {
   id: string;
@@ -25,10 +26,13 @@ const DEFAULT_SECTIONS: NavSection[] = [
   { id: "resume", label: "Resume", icon: <FileText className="w-full h-full" /> },
   { id: "education", label: "Education", icon: <GraduationCap className="w-full h-full" /> },
   { id: "skills", label: "Skills", icon: <Code className="w-full h-full" /> },
+  { id: "certifications", label: "Certifications", icon: <Award className="w-full h-full" /> },  
   { id: "contact", label: "Contact", icon: <Mail className="w-full h-full" /> },
 ];
 
 export function FloatingNav({ sections = DEFAULT_SECTIONS }: FloatingNavProps) {
+  const pathname = usePathname();
+  const router = useRouter();
   const [activeSection, setActiveSection] = useState<string>("hero");
   const [isVisible, setIsVisible] = useState(true);
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -61,31 +65,41 @@ export function FloatingNav({ sections = DEFAULT_SECTIONS }: FloatingNavProps) {
     setActiveSection(sectionId);
   }, []);
 
+      useEffect(() => {
+      if (pathname === "/certifications") {
+        setActiveSection("certifications");
+      } else if (pathname === "/") {
+        const hash = window.location.hash.replace("#", "");
+        setActiveSection(hash || "hero");
+      }
+}, [pathname]);
   // Intersection Observer for accurate section detection
-  useEffect(() => {
-    const observerOptions: IntersectionObserverInit = {
-      root: null,
-      rootMargin: "-10% 0px -70% 0px",
-      threshold: 0,
-    };
+      useEffect(() => {
+        if (pathname !== "/") return;
 
-    const observerCallback = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          setActiveSection(entry.target.id);
-        }
-      });
-    };
+        const observerOptions: IntersectionObserverInit = {
+          root: null,
+          rootMargin: "-10% 0px -70% 0px",
+          threshold: 0,
+        };
 
-    const observer = new IntersectionObserver(observerCallback, observerOptions);
+        const observerCallback = (entries: IntersectionObserverEntry[]) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              setActiveSection(entry.target.id);
+            }
+          });
+        };
 
-    sections.forEach(({ id }) => {
-      const element = document.getElementById(id);
-      if (element) observer.observe(element);
-    });
+        const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-    return () => observer.disconnect();
-  }, [sections]);
+        sections.forEach(({ id }) => {
+          const element = document.getElementById(id);
+          if (element) observer.observe(element);
+        });
+
+        return () => observer.disconnect();
+      }, [sections, pathname]);
 
   // Optional: Hide on fast scroll down, show on scroll up
   useEffect(() => {
@@ -191,7 +205,21 @@ export function FloatingNav({ sections = DEFAULT_SECTIONS }: FloatingNavProps) {
               {sections.map((section) => (
                 <motion.button
                   key={section.id}
-                  onClick={() => scrollToSection(section.id)}
+                  onClick={() => {
+                    if (section.id === "certifications") {
+                      setActiveSection("certifications");
+                      router.push("/certifications");
+                      return;
+                    }
+
+                    setActiveSection(section.id);
+
+                    if (pathname === "/") {
+                      scrollToSection(section.id);
+                    } else {
+                      router.push(`/#${section.id}`);
+                    }
+                  }}
                   className="relative p-1.5 rounded-full transition-colors
                              focus:outline-none focus:ring-2 focus:ring-foreground/50
                              group sm:p-2 md:p-2.5"
