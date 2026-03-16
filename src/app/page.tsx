@@ -6,17 +6,18 @@ import { ResumeCard } from "@/components/resume-card";
 import { WorkExperience } from "@/components/work-experience";
 import { ProjectGrid } from "@/components/project-grid";
 import { ThemeAvatar } from "@/components/theme-avatar";
-import { FloatingNav } from "@/components/floating-nav";
 import { DATA } from "@/data/resume";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import { Mail, MapPin, Download, FileText } from "lucide-react";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 
 const BLUR_FADE_DELAY = 0.04;
 
 export default function Page() {
+
+  const profileRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
   const hash = window.location.hash.replace("#", "");
@@ -34,6 +35,29 @@ export default function Page() {
     behavior: "smooth",
   });
 }, []);
+
+  useEffect(() => {
+    // Profile photo parallax effect
+    const profile = document.getElementById("profile-image");
+    if (profile) {
+      const handleMouseMove = (e: MouseEvent) => {
+        const { clientX, clientY } = e;
+        const { left, top, width, height } = profile.getBoundingClientRect();
+        const x = (clientX - left - width / 2) / 20;
+        const y = (clientY - top - height / 2) / 20;
+
+
+        gsap.to(profile, {
+          x,
+          y,
+          duration: 0.5,
+          ease: "power2.out",
+        });
+      };
+      window.addEventListener("mousemove", handleMouseMove);
+      return () => window.removeEventListener("mousemove", handleMouseMove);
+    }
+  }, []);
 
   return (
     <div className="min-h-screen bg-background relative font-sans">
