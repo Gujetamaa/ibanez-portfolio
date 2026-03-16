@@ -79,12 +79,12 @@ const certifications: CertEntry[] = [
         expiresOn: "—",
         link: "https://verify.skilljar.com/c/xx6qihwb3fci",
       },
-      // {
-      //   name: "Claude 101",
-      //   issuedOn: "2026",
-      //   expiresOn: "—",
-      //   link: "#",
-      // },
+      {
+        name: "Claude 101",
+        issuedOn: "Mar 2026",
+        expiresOn: "—",
+        link: "https://verify.skilljar.com/c/yv2xd3nhexmj",
+      },
       // {
       //   name: "AI Fluency: Framework & Foundations",
       //   issuedOn: "2026",
