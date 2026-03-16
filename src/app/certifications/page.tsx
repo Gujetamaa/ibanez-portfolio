@@ -1,5 +1,6 @@
 import { ChevronLeftIcon } from "lucide-react";
 import Link from "next/link";
+import { ExternalLink } from "lucide-react";
 
 /**
  * Certification data structure
@@ -15,7 +16,7 @@ import Link from "next/link";
  */
 const certifications = [
   {
-    name: "Claude AI Developer Training",
+    name: "Claude AI Developer Training (In - Progress)",
     issuer: "Anthropic",
     issuedOn: "Mar 2026",
     expiresOn: "—",
@@ -26,21 +27,21 @@ const certifications = [
     issuer: "Blue Cape Security",
     issuedOn: "Jul 2025",
     expiresOn: "—",
-    link: "#",
+    link: "https://bluecapesecurity.com/certificates/dfir-foundations-techniques-professional-skills-and-readiness/?course_id=41775&cert-nonce=c166da7d26",
   },
   {
     name: "Airtable Builder Certification",
     issuer: "Airtable",
     issuedOn: "Feb 2025",
     expiresOn: "Mar 2027",
-    link: "#",
+    link: "https://verify.skilljar.com/c/ydmgwrodijpm",
   },
   {
     name: "AWS Academy Cloud Foundations",
     issuer: "AWS Academy",
     issuedOn: "Apr 2024",
     expiresOn: "—",
-    link: "#",
+    link: "https://www.credly.com/badges/82ac39aa-0a7c-4ee1-ab14-7fbf7e0bdb35",
   },
 ];
 
@@ -134,9 +135,10 @@ export default function CertificationsPage() {
                     href={cert.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-primary hover:underline transition-colors"
+                    className="inline-flex items-center gap-1 text-blue-600 hover:underline underline-offset-4"
                   >
                     View Certificate
+                    <ExternalLink className="w-3 h-3" />
                   </Link>
                 </td>
               </tr>

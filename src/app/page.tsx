@@ -184,7 +184,7 @@ export default function Page() {
                             <object
                               data="/resume.pdf#toolbar=0&navpanes=0&scrollbar=0&view=FitH"
                               type="application/pdf"
-                              className="w-full h-full pointer-events-none" 
+                              className="w-full h-full"
                             >
                                 <div className="flex items-center justify-center h-full text-muted-foreground bg-muted/20">
                                     <div className="flex flex-col items-center gap-2">

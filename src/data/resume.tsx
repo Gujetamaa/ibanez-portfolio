@@ -156,7 +156,7 @@ export const DATA = {
       active: true,
       description:
         "Developed a prototype learning platform supporting structured courses, progress tracking, and student engagement. Designed role-based application structure, interactive learning experiences, AI-assisted recommendations, community and coaching features, and certificate issuance/verification flows.",
-      technologies: ["React", "TypeScript", "Node.js", "PostgreSQL"],
+      technologies: ["React", "TypeScript", "Node.js", "Next.js", "PostgreSQL", "Claude"],
       links: [
         {
           type: "Website",
