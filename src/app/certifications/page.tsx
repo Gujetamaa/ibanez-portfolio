@@ -27,21 +27,21 @@ const certifications = [
     issuer: "Blue Cape Security",
     issuedOn: "Jul 2025",
     expiresOn: "—",
-    link: "https://bluecapesecurity.com/certificates/dfir-foundations-techniques-professional-skills-and-readiness/?course_id=41775&cert-nonce=c166da7d26",
+    link: "/certifications/dfir-foundations-techniques.pdf",
   },
   {
     name: "Airtable Builder Certification",
     issuer: "Airtable",
     issuedOn: "Feb 2025",
     expiresOn: "Mar 2027",
-    link: "https://verify.skilljar.com/c/ydmgwrodijpm",
+    link: "/certifications/airtable-builder.pdf",
   },
   {
     name: "AWS Academy Cloud Foundations",
     issuer: "AWS Academy",
     issuedOn: "Apr 2024",
     expiresOn: "—",
-    link: "https://www.credly.com/badges/82ac39aa-0a7c-4ee1-ab14-7fbf7e0bdb35",
+    link: "/certifications/aws-cloud-foundations.pdf",
   },
 ];
 
