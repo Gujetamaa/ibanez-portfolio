@@ -83,9 +83,9 @@ export default function CertificationsPage() {
           <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl">
             Certifications
           </h1>
-          <p className="text-muted-foreground text-base">
-            Here are some certifications I've earned in areas like AI, cloud computing, and digital forensics. These demonstrate my skills and commitment to professional development.
-          </p>
+            <p className="text-muted-foreground text-base">
+              Here are some certifications I&apos;ve earned in areas like AI, cloud computing, and digital forensics. These demonstrate my skills and commitment to professional development.
+            </p>
         </div>
       </div>
 
