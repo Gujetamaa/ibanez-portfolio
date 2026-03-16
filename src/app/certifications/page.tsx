@@ -34,7 +34,7 @@ const certifications = [
     issuer: "Airtable",
     issuedOn: "Feb 2025",
     expiresOn: "Mar 2027",
-    link: "/certifications/airtable-builder.pdf",
+    link: "http://verify.skilljar.com/c/ydmgwrodijpm",
   },
   {
     name: "AWS Academy Cloud Foundations",
@@ -137,7 +137,7 @@ export default function CertificationsPage() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-1 text-blue-600 hover:underline underline-offset-4"
                   >
-                    View Certificate
+                    Verify Credential
                     <ExternalLink className="w-3 h-3" />
                   </Link>
                 </td>
