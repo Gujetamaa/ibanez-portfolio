@@ -68,14 +68,14 @@ export default function CertificationsPage() {
   }
 
   return (
-    <main className="flex flex-col min-h-[100dvh] space-y-10 max-w-4xl">
+    <main className="flex flex-col min-h-[100dvh] space-y-10 max-w-4xl mx-auto px-4 py-12">
       <div className="space-y-4">
         <Link
           href="/"
           className="group inline-flex items-center gap-2 text-sm text-muted-foreground hover:text-foreground transition-colors"
         >
-          <ChevronLeftIcon className="size-4 translate-x-0 transform transition-all duration-300 ease-out group-hover:-translate-x-1" />
-          Back
+          <ChevronLeftIcon className="size-10 translate-x-0 transform transition-all duration-300 ease-out group-hover:-translate-x-1" />
+          Back to Home
         </Link>
 
         <div className="space-y-3">
