@@ -4,25 +4,109 @@ import { ExternalLink } from "lucide-react";
 
 /**
  * Certification data structure
- * To add more certifications, simply add another object to this array
- * Example:
+ * Supports two types of entries:
+ *
+ * 1. Grouped Track (type: "group"):
+ *    - Shows as a parent group with multiple sub-certifications
+ *    - Each sub-cert has its own verification link
+ *
+ * 2. Standalone Certification (type: "single"):
+ *    - Individual certification with one verification link
+ *
+ * Example Grouped Track:
  * {
- *   name: "New Certification Name",
- *   issuer: "Issuing Organization",
+ *   type: "group",
+ *   program: "Training Program Name",
+ *   issuer: "Organization",
+ *   issuedOn: "Jan 2026",
+ *   expiresOn: "Jan 2028",
+ *   certifications: [
+ *     { name: "Sub-Cert 1", issuedOn: "Jan 2026", expiresOn: "Jan 2028", link: "https://example.com" },
+ *     { name: "Sub-Cert 2", issuedOn: "Jan 2026", expiresOn: "Jan 2028", link: "https://example.com" }
+ *   ]
+ * }
+ *
+ * Example Single Certification:
+ * {
+ *   type: "single",
+ *   name: "Certification Name",
+ *   issuer: "Organization",
  *   issuedOn: "Jan 2026",
  *   expiresOn: "Jan 2028",
  *   link: "https://example.com/credential"
  * }
  */
-const certifications = [
+
+type SubCertification = {
+  name: string;
+  issuedOn: string;
+  expiresOn: string;
+  link: string;
+};
+
+type SingleCert = {
+  type: "single";
+  name: string;
+  issuer: string;
+  issuedOn: string;
+  expiresOn: string;
+  link: string;
+};
+
+type GroupCert = {
+  type: "group";
+  program: string;
+  issuer: string;
+  issuedOn: string;
+  expiresOn: string;
+  certifications: SubCertification[];
+};
+
+type CertEntry = SingleCert | GroupCert;
+
+const certifications: CertEntry[] = [
   {
-    name: "Claude AI Developer Training (In - Progress)",
+    type: "group",
+    program: "Claude AI Developer Training",
     issuer: "Anthropic",
-    issuedOn: "Mar 2026",
+    issuedOn: "2026",
     expiresOn: "—",
-    link: "#",
+    certifications: [
+
+      {
+        name: "Claude Code in Action",
+        issuedOn: "Mar 2026",
+        expiresOn: "—",
+        link: "https://verify.skilljar.com/c/xx6qihwb3fci",
+      },
+      // {
+      //   name: "Claude 101",
+      //   issuedOn: "2026",
+      //   expiresOn: "—",
+      //   link: "#",
+      // },
+      // {
+      //   name: "AI Fluency: Framework & Foundations",
+      //   issuedOn: "2026",
+      //   expiresOn: "—",
+      //   link: "#",
+      // },
+      // {
+      //   name: "Building with the Claude API",
+      //   issuedOn: "2026",
+      //   expiresOn: "—",
+      //   link: "#",
+      // },
+      // {
+      //   name: "Introduction to Model Context Protocol",
+      //   issuedOn: "2026",
+      //   expiresOn: "—",
+      //   link: "#",
+      // },
+    ],
   },
   {
+    type: "single",
     name: "DFIR Foundations and Techniques",
     issuer: "Blue Cape Security",
     issuedOn: "Jul 2025",
@@ -30,6 +114,7 @@ const certifications = [
     link: "/certifications/dfir-foundations-techniques.pdf",
   },
   {
+    type: "single",
     name: "Airtable Builder Certification",
     issuer: "Airtable",
     issuedOn: "Feb 2025",
@@ -37,11 +122,12 @@ const certifications = [
     link: "http://verify.skilljar.com/c/ydmgwrodijpm",
   },
   {
+    type: "single",
     name: "AWS Academy Cloud Foundations",
     issuer: "AWS Academy",
     issuedOn: "Apr 2024",
     expiresOn: "—",
-    link: "/certifications/aws-cloud-foundations.pdf",
+    link: "https://www.credly.com/badges/82ac39aa-0a7c-4ee1-ab14-7fbf7e0bdb35f",
   },
 ];
 
@@ -113,36 +199,98 @@ export default function CertificationsPage() {
           </thead>
           <tbody className="divide-y">
             {/* Map through certifications array and dynamically render rows */}
-            {certifications.map((cert, index) => (
-              <tr
-                key={index}
-                className="hover:bg-muted/30 transition-colors"
-              >
-                <td className="py-4 px-4 text-sm font-medium">
-                  {cert.name}
-                </td>
-                <td className="py-4 px-4 text-sm text-muted-foreground">
-                  {cert.issuer}
-                </td>
-                <td className="py-4 px-4 text-sm text-muted-foreground">
-                  {cert.issuedOn}
-                </td>
-                <td className="py-4 px-4 text-sm text-muted-foreground">
-                  {cert.expiresOn}
-                </td>
-                <td className="py-4 px-4 text-sm">
-                  <Link
-                    href={cert.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 text-blue-600 hover:underline underline-offset-4"
+            {certifications.flatMap((cert, index) => {
+              // Handle grouped certifications
+              if (cert.type === "group") {
+                return [
+                  // Group header row
+                  <tr
+                    key={`${index}-header`}
+                    className="bg-muted/40 hover:bg-muted/50 transition-colors"
                   >
-                    Verify Credential
-                    <ExternalLink className="w-3 h-3" />
-                  </Link>
-                </td>
-              </tr>
-            ))}
+                    <td className="py-4 px-4 text-sm font-bold">
+                      {cert.program}
+                    </td>
+                    <td className="py-4 px-4 text-sm text-muted-foreground">
+                      {cert.issuer}
+                    </td>
+                    <td className="py-4 px-4 text-sm text-muted-foreground">
+                      {cert.issuedOn}
+                    </td>
+                    <td className="py-4 px-4 text-sm text-muted-foreground">
+                      {cert.expiresOn}
+                    </td>
+                    <td className="py-4 px-4 text-sm">
+                      {/* No link for group header */}
+                    </td>
+                  </tr>,
+                  // Sub-certification rows
+                  ...cert.certifications.map((subCert, subIndex) => (
+                    <tr
+                      key={`${index}-sub-${subIndex}`}
+                      className="hover:bg-muted/30 transition-colors"
+                    >
+                      <td className="py-4 px-4 text-sm text-muted-foreground/70 pl-8">
+                        <span className="text-muted-foreground/40">└ </span>
+                        {subCert.name}
+                      </td>
+                      <td className="py-4 px-4 text-sm text-muted-foreground">
+                        {/* Issuer column empty for sub-certs */}
+                      </td>
+                      <td className="py-4 px-4 text-sm text-muted-foreground">
+                        {subCert.issuedOn}
+                      </td>
+                      <td className="py-4 px-4 text-sm text-muted-foreground">
+                        {subCert.expiresOn}
+                      </td>
+                      <td className="py-4 px-4 text-sm">
+                        <Link
+                          href={subCert.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 text-blue-600 hover:underline underline-offset-4"
+                        >
+                          Verify Credential
+                          <ExternalLink className="w-3 h-3" />
+                        </Link>
+                      </td>
+                    </tr>
+                  )),
+                ];
+              }
+
+              // Handle single certifications
+              return (
+                <tr
+                  key={`${index}-single`}
+                  className="hover:bg-muted/30 transition-colors"
+                >
+                  <td className="py-4 px-4 text-sm font-medium">
+                    {cert.name}
+                  </td>
+                  <td className="py-4 px-4 text-sm text-muted-foreground">
+                    {cert.issuer}
+                  </td>
+                  <td className="py-4 px-4 text-sm text-muted-foreground">
+                    {cert.issuedOn}
+                  </td>
+                  <td className="py-4 px-4 text-sm text-muted-foreground">
+                    {cert.expiresOn}
+                  </td>
+                  <td className="py-4 px-4 text-sm">
+                    <Link
+                      href={cert.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-blue-600 hover:underline underline-offset-4"
+                    >
+                      Verify Credential
+                      <ExternalLink className="w-3 h-3" />
+                    </Link>
+                  </td>
+                </tr>
+              );
+            })}
           </tbody>
         </table>
       </div>
