@@ -195,7 +195,7 @@ export const DATA = {
       status: "online",
       description:
         "Maintained frontend and backend features for booking, scheduling, and customer workflows. Implemented APIs and backend logic, refined UI components, ran functional and API tests, and resolved 30+ cross‑stack issues. Delivered UI/UX and SEO improvements to boost engagement.",
-      technologies: ["React", "TypeScript", "Supabase", "BusyBee", "Supabase", "Airtable"],
+      technologies: ["React", "TypeScript", "Supabase", "BusyBee", "Airtable"],
       links: [
         {
           type: "Website",
