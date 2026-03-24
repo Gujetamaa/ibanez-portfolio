@@ -141,7 +141,7 @@ export default function Page() {
               </BlurFade>
               <ProjectGrid>
                 {DATA.projects.map((project, index) => (
-                  <ProjectCard 
+                  <ProjectCard
                     key={index}
                     href={project.href}
                     title={project.title}
@@ -152,6 +152,7 @@ export default function Page() {
                     video={project.video}
                     links={project.links}
                     showPreview={true}
+                    status={project.status}
                   />
                 ))}
               </ProjectGrid>

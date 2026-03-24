@@ -30,6 +30,7 @@ interface Props {
   }[];
   className?: string;
   showPreview?: boolean;
+  status?: "online" | "offline";
 }
 
 export function ProjectCard({
@@ -43,6 +44,7 @@ export function ProjectCard({
   links,
   className,
   showPreview = false,
+  status,
 }: Props) {
   // Filter out "Website" links as the whole card is now the link
   const footerLinks = links?.filter((link) => link.type !== "Website");
@@ -108,7 +110,7 @@ export function ProjectCard({
           <div className="flex justify-between items-start gap-2">
             <CardTitle className="text-base font-bold flex items-center gap-2">
               {title}
-              {href && <div className="size-1.5 rounded-full bg-green-500 animate-pulse" />}
+              {status === "online" && <div className="size-1.5 rounded-full bg-green-500 animate-pulse" />}
             </CardTitle>
             <time className="font-sans text-[10px] text-muted-foreground whitespace-nowrap pt-1">
               {dates}

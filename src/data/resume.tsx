@@ -154,6 +154,7 @@ export const DATA = {
       href: "https://nexskill-cms.vercel.app/login#",
       dates: "Dec 2025 - Jan 2026",
       active: true,
+      status: "online",
       description:
         "Developed a prototype learning platform supporting structured courses, progress tracking, and student engagement. Designed role-based application structure, interactive learning experiences, AI-assisted recommendations, community and coaching features, and certificate issuance/verification flows.",
       technologies: ["React", "TypeScript", "Node.js", "Next.js", "PostgreSQL", "Claude"],
@@ -172,6 +173,7 @@ export const DATA = {
       href: "https://capstone-project-six-livid.vercel.app",
       dates: "Sept 2024 - Nov 2025",
       active: true,
+      status: "online",
       description:
         "Built a full‑stack e‑governance platform for managing resident records, document requests, and incident reports for thousands of residents. Designed backend APIs and schemas, implemented role‑based authentication, and delivered dashboards and reporting tools with React and TypeScript.",
       technologies: ["React", "TypeScript", "Node.js", "JavaScript", "Firebase(NoSQL)", "REST APIs"],
@@ -190,6 +192,7 @@ export const DATA = {
       href: "https://www.hakumautocare.com/",
       dates: "Mar 2025 – Oct 2025",
       active: true,
+      status: "online",
       description:
         "Maintained frontend and backend features for booking, scheduling, and customer workflows. Implemented APIs and backend logic, refined UI components, ran functional and API tests, and resolved 30+ cross‑stack issues. Delivered UI/UX and SEO improvements to boost engagement.",
       technologies: ["React", "TypeScript", "Supabase", "BusyBee", "Supabase", "Airtable"],
@@ -208,6 +211,7 @@ export const DATA = {
       href: "#",
       dates: "Sept 2024 – Dec 2024",
       active: true,
+      status: "offline",
       description:
         "Designed and delivered an end‑to‑end module for a public communication platform serving thousands of constituents. Implemented APIs for announcements, integrated frontend components, automated distribution via web UI, SMS, and email, and enforced data validation and consistency.",
       technologies: ["React", "TypeScript", "Ruby on Rails", "PostgreSQL"],
