@@ -108,9 +108,9 @@ export function ProjectCard({
       <CardHeader className="px-4 py-4 relative z-10 pointer-events-none">
         <div className="space-y-2">
           <div className="flex justify-between items-start gap-2">
-            <CardTitle className="text-base font-bold flex items-center gap-2">
+            <CardTitle className="text-base font-bold flex items-center gap-2 flex-nowrap">
               {title}
-              {status === "online" && <div className="size-1.5 rounded-full bg-green-500 animate-pulse" />}
+              {status === "online" && <div className="size-1.5 rounded-full bg-green-500 animate-pulse flex-shrink-0" />}
             </CardTitle>
             <time className="font-sans text-[10px] text-muted-foreground whitespace-nowrap pt-1">
               {dates}
