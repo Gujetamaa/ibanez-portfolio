@@ -174,7 +174,7 @@ export const DATA = {
       active: true,
       description:
         "Built a full‑stack e‑governance platform for managing resident records, document requests, and incident reports for thousands of residents. Designed backend APIs and schemas, implemented role‑based authentication, and delivered dashboards and reporting tools with React and TypeScript.",
-      technologies: ["React", "TypeScript", "Node.js", "JavaScript", "PostgreSQL", "REST APIs"],
+      technologies: ["React", "TypeScript", "Node.js", "JavaScript", "Firebase(NoSQL)", "REST APIs"],
       links: [
         {
           type: "Website",
