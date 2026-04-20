@@ -107,6 +107,22 @@ const certifications: CertEntry[] = [
   },
   {
     type: "single",
+    name: "Ascent: Snowflake Platform Training - APAC",
+    issuer: "Snowflake",
+    issuedOn: "Apr 2026",
+    expiresOn: "—",
+    link: "/certifications/ascent-snowflake.pdf",
+  },
+  {
+    type: "single",
+    name: "Snowflake University Platform Skills Badge",
+    issuer: "Snowflake",
+    issuedOn: "Apr 2026",
+    expiresOn: "—",
+    link: "https://achieve.snowflake.com/ac7f48d0-0c1d-442d-8512-cb060fd6e225#acc.nxshtcOi",
+  },  
+  {
+    type: "single",
     name: "DFIR Foundations and Techniques",
     issuer: "Blue Cape Security",
     issuedOn: "Jul 2025",
