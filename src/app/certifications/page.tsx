@@ -59,6 +59,7 @@ type GroupCert = {
   issuer: string;
   issuedOn: string;
   expiresOn: string;
+  link: string; // Optional link for the overall program
   certifications: SubCertification[];
 };
 
@@ -71,6 +72,7 @@ const certifications: CertEntry[] = [
     issuer: "Snowflake",
     issuedOn: "2026",
     expiresOn: "—",
+    link: "https://www.credential.net/profile/jericoibaez595363/wallet",
     certifications: [
 
       {
@@ -100,6 +102,7 @@ const certifications: CertEntry[] = [
     issuer: "Anthropic",
     issuedOn: "2026",
     expiresOn: "—",
+    link: "-",
     certifications: [
 
       {
