@@ -76,7 +76,7 @@ const certifications: CertEntry[] = [
       {
         name: "SnowPro Associate: Platform",
         issuedOn: "Apr 2026",
-        expiresOn: "—",
+        expiresOn: "Apr 2028",
         link: "https://achieve.snowflake.com/42421114-a511-456e-8352-463790538323#acc.mw6CqOWS",
       },
       {
@@ -134,7 +134,14 @@ const certifications: CertEntry[] = [
       // },
     ],
   },
-  
+  {
+    type: "single",
+    name: "DFIR Foundations and Techniques Course",
+    issuer: "Blue Cape Security",
+    issuedOn: "July 2025",
+    expiresOn: "—",
+    link: "/certifications/dfir-foundations-techniques.pdf",
+  },  
   {
     type: "single",
     name: "Airtable Builder Certification",
