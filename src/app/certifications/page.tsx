@@ -67,6 +67,35 @@ type CertEntry = SingleCert | GroupCert;
 const certifications: CertEntry[] = [
   {
     type: "group",
+    program: "Snowflake Platform",
+    issuer: "Snowflake",
+    issuedOn: "2026",
+    expiresOn: "—",
+    certifications: [
+
+      {
+        name: "SnowPro Associate: Platform",
+        issuedOn: "Apr 2026",
+        expiresOn: "—",
+        link: "https://achieve.snowflake.com/42421114-a511-456e-8352-463790538323#acc.mw6CqOWS",
+      },
+      {
+      name: "Snowflake University Platform Skills Badge",
+      issuedOn: "Apr 2026",
+      expiresOn: "—",
+      link: "https://achieve.snowflake.com/ac7f48d0-0c1d-442d-8512-cb060fd6e225#acc.nxshtcOi",
+      },
+      {
+      name: "Ascent: Snowflake Platform Training - APAC",
+      issuedOn: "Apr 2026",
+      expiresOn: "—",
+      link: "/certifications/ascent-snowflake.pdf",
+      },
+
+    ],
+  },
+  {
+    type: "group",
     program: "Claude AI Developer Training",
     issuer: "Anthropic",
     issuedOn: "2026",
@@ -105,35 +134,7 @@ const certifications: CertEntry[] = [
       // },
     ],
   },
-{
-    type: "group",
-    program: "Snowflake Platform",
-    issuer: "Snowflake",
-    issuedOn: "2026",
-    expiresOn: "—",
-    certifications: [
-
-      {
-        name: "SnowPro Associate: Platform",
-        issuedOn: "Apr 2026",
-        expiresOn: "—",
-        link: "https://achieve.snowflake.com/42421114-a511-456e-8352-463790538323#acc.mw6CqOWS",
-      },
-      {
-      name: "Snowflake University Platform Skills Badge",
-      issuedOn: "Apr 2026",
-      expiresOn: "—",
-      link: "https://achieve.snowflake.com/ac7f48d0-0c1d-442d-8512-cb060fd6e225#acc.nxshtcOi",
-      },
-      {
-      name: "Ascent: Snowflake Platform Training - APAC",
-      issuedOn: "Apr 2026",
-      expiresOn: "—",
-      link: "/certifications/ascent-snowflake.pdf",
-      },
-
-    ],
-  },  
+  
   {
     type: "single",
     name: "Airtable Builder Certification",
